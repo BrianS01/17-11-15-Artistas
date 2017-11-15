@@ -3,6 +3,7 @@
  *     Program ::: Bases de Datos
  *  Credential ::: SIST0008-G01:SIV
  */
+
 package dao;
 
 import java.sql.Connection;
@@ -82,15 +83,15 @@ public class ArtistaDAO
         {
             System.out.println("LLegue hasta aca");
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("select * from users");
+            ResultSet rs = statement.executeQuery("select * from artista");
             while (rs.next())
             {
                 Artista user = new Artista();
-                user.setUserid(rs.getInt("userid"));
-                user.setFirstName(rs.getString("firstname"));
-                user.setLastName(rs.getString("lastname"));
-                user.setDob(rs.getDate("dob"));
-                user.setEmail(rs.getString("email"));
+                user.setCedula(rs.getInt("cedula"));
+                user.setNombre(rs.getString("firstname"));
+                user.setEdad(rs.getInt("edad"));
+                user.setObra(rs.getString("obra"));
+                user.setEstilo(rs.getString("estilo"));
                 users.add(user);
             }
         }
@@ -101,21 +102,21 @@ public class ArtistaDAO
         return users;
     }
 
-    public Artista getUserById(int userId)
+    public Artista getUserById(int cedula)
     {
         Artista user = new Artista();
         try
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from users where userid=?");
-            preparedStatement.setInt(1, userId);
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from artista where cedula=?");
+            preparedStatement.setInt(1, cedula);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next())
             {
-                user.setUserid(rs.getInt("userid"));
-                user.setFirstName(rs.getString("firstname"));
-                user.setLastName(rs.getString("lastname"));
-                user.setDob(rs.getDate("dob"));
-                user.setEmail(rs.getString("email"));
+                user.setCedula(rs.getInt("cedula"));
+                user.setNombre(rs.getString("firstname"));
+                user.setEdad(rs.getInt("edad"));
+                user.setObra(rs.getString("obra"));
+                user.setEstilo(rs.getString("estilo"));
             }
         }
         catch (SQLException e)
