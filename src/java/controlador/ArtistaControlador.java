@@ -3,6 +3,7 @@
  *     Program ::: Bases de Datos
  *  Credential ::: SIST0008-G01:SIV
  */
+
 package controlador;
 
 import java.io.IOException;
@@ -14,23 +15,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.daniel.dao.UserDao;
-import com.daniel.model.User;
-/**
- * Adaptado de https://danielniko.wordpress.com/2012/04/17/simple-crud-using-jsp-servlet-and-mysql/
- * @author Fabian Giraldo
- */
+import dao.ArtistaDAO;
+import modelo.Artista;
+
 public class ArtistaControlador extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
     private static String INSERT_OR_EDIT = "/user.jsp";
     private static String LIST_USER = "/listUser.jsp";
-    private UserDao dao;
+    private ArtistaDAO dao;
 
-    public UserController()
+    public ArtistaControlador()
     {
         super();
-        dao = new UserDao();
+        dao = new ArtistaDAO();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -42,19 +40,19 @@ public class ArtistaControlador extends HttpServlet
             int userId = Integer.parseInt(request.getParameter("userId"));
             dao.deleteUser(userId);
             forward = LIST_USER;
-            request.setAttribute("users", dao.getAllUsers());
+            request.setAttribute("artista", dao.getAllUsers());
         }
         else if (action.equalsIgnoreCase("edit"))
         {
             forward = INSERT_OR_EDIT;
-            int userId = Integer.parseInt(request.getParameter("userId"));
-            User user = dao.getUserById(userId);
+            int userId = Integer.parseInt(request.getParameter("cedula"));
+            Artista user = dao.getUserById(userId);
             request.setAttribute("user", user);
         }
         else if (action.equalsIgnoreCase("listUser"))
         {
             forward = LIST_USER;
-            request.setAttribute("users", dao.getAllUsers());
+            request.setAttribute("artista", dao.getAllUsers());
         }
         else
         {
@@ -67,28 +65,19 @@ public class ArtistaControlador extends HttpServlet
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        User user = new User();
-        user.setFirstName(request.getParameter("firstName"));
-        user.setLastName(request.getParameter("lastName"));
-        try
-        {
-            Date dob = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dob"));
-            user.setDob(dob);
-        }
-        catch (ParseException e)
-        {
-            e.printStackTrace();
-        }
-        
-        user.setEmail(request.getParameter("email"));
-        String userid = request.getParameter("userid");
-        if (userid == null || userid.isEmpty())
+        Artista user = new Artista();
+        user.setNombre(request.getParameter("nombre"));
+        String edad = request.getParameter("edad");
+        user.setObra(request.getParameter("obra"));
+        user.setEstilo(request.getParameter("estilo"));
+        String cedula = request.getParameter("cedula");
+        if (cedula == null || cedula.isEmpty())
         {
             dao.addUser(user);
         }
         else
         {
-            user.setUserid(Integer.parseInt(userid));
+            user.setCedula(Integer.parseInt(cedula));
             dao.updateUser(user);
         }
         
