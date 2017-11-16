@@ -41,7 +41,7 @@
                     <td><%=user.getObra()%></td>
                     <td><%=user.getEstilo()%></td>
                     <td><a href="ArtistaControlador?action=edit&userId=<%=user.getCedula()%>">Update</a></td>
-                    <td><a href="UserController?action=delete&userId=<%=user.getCedula()%>">Delete</a></td>
+                    <td><a href="ArtistaControlador?action=delete&userId=<%=user.getCedula()%>">Delete</a></td>
                 </tr>
                 <%
                         }
