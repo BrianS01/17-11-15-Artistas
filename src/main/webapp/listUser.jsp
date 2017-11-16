@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <%
-                    List<User> users = (List<User>) request.getAttribute("users");
+                    List<Artista> users = (List<Artista>) request.getAttribute("users");
                     if (users != null)
                     {
                         for (User user : users)
