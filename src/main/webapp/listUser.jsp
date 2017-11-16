@@ -28,10 +28,10 @@
             </thead>
             <tbody>
                 <%
-                    List<Artista> users = (List<Artista>) request.getAttribute("users");
+                    List<Artista> users = (List<Artista>) request.getAttribute("artista");
                     if (users != null)
                     {
-                        for (User user : users)
+                        for (Artista user : users)
                         {
                 %>
                 <tr>
