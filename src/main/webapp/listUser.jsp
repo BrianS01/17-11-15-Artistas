@@ -35,7 +35,7 @@
                         {
                 %>
                 <tr>
-                    <td><%=user.getUserid()%></td>
+                    <td><%=user.getCedula()%></td>
                     <td><%=user.getFirstName()%></td>
                     <td><%=user.getLastName()%></td>
                     <td><%=user.getDob()%></td>
@@ -49,6 +49,6 @@
                 %>
             </tbody>
         </table>
-        <p><a href="UserController?action=insert">Add User</a></p>
+        <p><a href="UserController?action=insert">Agregar User</a></p>
     </body>
 </html>
