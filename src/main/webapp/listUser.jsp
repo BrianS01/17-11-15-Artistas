@@ -37,7 +37,7 @@
                 <tr>
                     <td><%=user.getCedula()%></td>
                     <td><%=user.getNombre()%></td>
-                    <td><%=user.getLastName()%></td>
+                    <td><%=user.getEdad()%></td>
                     <td><%=user.getDob()%></td>
                     <td><%=user.getEmail()%></td>
                     <td><a href="UserController?action=edit&userId=<%=user.getUserid()%>">Update</a></td>
