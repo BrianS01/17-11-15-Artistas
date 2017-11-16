@@ -49,6 +49,6 @@
                 %>
             </tbody>
         </table>
-        <p><a href="UserController?action=insert">Agregar User</a></p>
+        <p><a href="ArtistaControlador?action=insert">Agregar User</a></p>
     </body>
 </html>
