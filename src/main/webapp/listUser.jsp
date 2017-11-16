@@ -36,7 +36,7 @@
                 %>
                 <tr>
                     <td><%=user.getCedula()%></td>
-                    <td><%=user.getFirstName()%></td>
+                    <td><%=user.getNombre()%></td>
                     <td><%=user.getLastName()%></td>
                     <td><%=user.getDob()%></td>
                     <td><%=user.getEmail()%></td>
