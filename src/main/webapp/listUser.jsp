@@ -40,7 +40,7 @@
                     <td><%=user.getEdad()%></td>
                     <td><%=user.getObra()%></td>
                     <td><%=user.getEstilo()%></td>
-                    <td><a href="UserController?action=edit&userId=<%=user.getUserid()%>">Update</a></td>
+                    <td><a href="UserController?action=edit&userId=<%=user.getCedula()%>">Update</a></td>
                     <td><a href="UserController?action=delete&userId=<%=user.getUserid()%>">Delete</a></td>
                 </tr>
                 <%
