@@ -18,11 +18,11 @@
         <table border=1>
             <thead>
                 <tr>
-                    <th>User Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>DOB</th>
-                    <th>Email</th>
+                    <th>Cedula</th>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Obra</th>
+                    <th>Estilo</th>
                     <th colspan=2>Action</th>
                 </tr>
             </thead>
