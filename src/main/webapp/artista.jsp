@@ -14,20 +14,20 @@
     </head>
     <body>
         <%
-            User user = (User) request.getAttribute("user");
+            Artista user = (Artista) request.getAttribute("user");
             if (request.getParameter("action").equals("insert"))
             {
         %>
         <form method="POST" action='UserController' name="frmAddUser">
-            User ID : <input type="text" readonly="readonly" name="userid"/>
+            Cedula : <input type="text" readonly="readonly" name="userid"/>
             <br /> 
-            First Name : <input type="text" name="firstName"/>
+            Nombre : <input type="text" name="firstName"/>
             <br /> 
-            Last Name : <input type="text" name="lastName"/>
+            Edad : <input type="text" name="lastName"/>
             <br /> 
-            DOB : <input  type="date" name="dob"/>
+            Obra : <input  type="date" name="dob"/>
             <br /> 
-            Email : <input type="text" name="email"/>
+            Estilo : <input type="text" name="email"/>
             <br />
             <input type="submit" value="Submit" />
         </form>
